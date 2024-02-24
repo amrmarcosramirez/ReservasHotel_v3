@@ -7,12 +7,12 @@ public enum Regimen {
     PENSION_COMPLETA("PENSION_COMPLETA", 50);
 
     // Se crean los atributos con su visibilidad adecuada
-    private String descripcion;
+    private String cadenaAMostrar;
     private double incrementoPrecio;
 
     //Constructor
-    Regimen(String descripcion, double incrementoPrecio) {
-        this.descripcion = descripcion;
+    Regimen(String cadenaAMostrar, double incrementoPrecio) {
+        this.cadenaAMostrar = cadenaAMostrar;
         this.incrementoPrecio = incrementoPrecio;
     }
 
@@ -25,6 +25,6 @@ public enum Regimen {
     @Override
     public String toString() {
         return String.format("Régimen[descripción=%s, incremento precio=%s]",
-                this.descripcion, getIncrementoPrecio());
+                this.cadenaAMostrar, getIncrementoPrecio());
     }
 }
