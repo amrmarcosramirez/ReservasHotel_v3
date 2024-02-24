@@ -1,6 +1,5 @@
 package org.iesalandalus.programacion.reservashotel.modelo.dominio;
 
-import java.util.Objects;
 
 public class Simple extends Habitacion{
 
