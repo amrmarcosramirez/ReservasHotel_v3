@@ -93,7 +93,7 @@ public class Huesped {
         return dni;
     }
 
-    public void setDni(String dni) {
+    private void setDni(String dni) {
         Objects.requireNonNull(dni, "ERROR: El dni de un huésped no puede ser nulo.");
         dni = dni.trim();
         if(!comprobarLetraDni(dni)) {
@@ -136,7 +136,7 @@ public class Huesped {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    private void setFechaNacimiento(LocalDate fechaNacimiento) {
         Objects.requireNonNull(fechaNacimiento,
                 "ERROR: La fecha de nacimiento de un huésped no puede ser nula.");
         this.fechaNacimiento = fechaNacimiento;
