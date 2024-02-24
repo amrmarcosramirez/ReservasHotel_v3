@@ -1,30 +1,23 @@
 package org.iesalandalus.programacion.reservashotel.modelo.dominio;
 
 public enum TipoHabitacion {
-    SUITE("SUITE", 4),
-    SIMPLE("SIMPLE", 1),
-    DOBLE("DOBLE", 2),
-    TRIPLE("TRIPLE", 3);
+    SUITE("SUITE"),
+    SIMPLE("SIMPLE"),
+    DOBLE("DOBLE"),
+    TRIPLE("TRIPLE");
 
     // Se crean los atributos con su visibilidad adecuada
-    private String descripcion;
-    private int numeroMaximoPersonas;
+    private String cadenaAMostrar;
 
     //Constructor
-    TipoHabitacion(String descripcion, int numeroMaximoPersonas) {
-        this.descripcion = descripcion;
-        this.numeroMaximoPersonas = numeroMaximoPersonas;
-    }
-
-    //Método de acceso
-    public int getNumeroMaximoPersonas() {
-        return numeroMaximoPersonas;
+    TipoHabitacion(String cadenaAMostrar) {
+        this.cadenaAMostrar = cadenaAMostrar;
     }
 
     //Método toString
     @Override
     public String toString() {
-        return String.format("Tipo Habitacion: %s, número personas: %s",
-                this.descripcion, getNumeroMaximoPersonas());
+        return String.format("Tipo Habitacion: %s",
+                this.cadenaAMostrar);
     }
 }
