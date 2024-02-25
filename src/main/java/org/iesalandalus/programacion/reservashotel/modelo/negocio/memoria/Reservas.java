@@ -24,9 +24,8 @@ public class Reservas implements IReservas {
 
     public List<Reserva> get() {
         List<Reserva> copiaReservas = new ArrayList<>();
-        for (Iterator<Reserva> iterator = coleccionReservas.iterator();
-             iterator.hasNext();) {
-            copiaReservas.add(new Reserva(iterator.next()));
+        for (Reserva coleccionReserva : coleccionReservas) {
+            copiaReservas.add(new Reserva(coleccionReserva));
         }
         return copiaReservas;
     }
@@ -69,7 +68,8 @@ public class Reservas implements IReservas {
         Objects.requireNonNull(huesped, "ERROR: No se pueden buscar reservas de un huésped nulo.");
         List<Reserva> reservasHuesped = new ArrayList<>();
         for (Iterator<Reserva> iterator = get().iterator(); iterator.hasNext();) {
-            if (iterator.next() != null && iterator.next().getHuesped().equals(huesped)) {
+            if (iterator.next() != null &&
+                    iterator.next().getHuesped().equals(huesped)) {
                 reservasHuesped.add(new Reserva(iterator.next()));
             }
         }
