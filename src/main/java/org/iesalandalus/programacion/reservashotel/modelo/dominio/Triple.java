@@ -77,6 +77,10 @@ public class Triple extends Habitacion{
 
     @Override
     public String toString() {
-        return String.format("capacidad=%d personas", this.getNumeroMaximoPersonas());
+        return super.toString() + ", " +
+                String.format("habitación triple, capacidad=%d personas, " +
+                              "baños=%d, camas individuales=%d, camas dobles=%d",
+                               this.getNumeroMaximoPersonas(), this.getNumBanos(),
+                        this.getNumCamasIndividuales(), this.getNumCamasDobles());
     }
 }

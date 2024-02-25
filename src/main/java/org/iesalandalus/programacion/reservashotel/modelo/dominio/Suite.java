@@ -46,7 +46,11 @@ public class Suite extends Habitacion{
 
     @Override
     public String toString() {
-        return String.format("capacidad=%d personas", this.getNumeroMaximoPersonas());
+        return super.toString() + ", " +
+                String.format("habitación suite, capacidad=%d personas, " +
+                                "baños=%d, tiene jacuzzi=%s",
+                        this.getNumeroMaximoPersonas(), this.getNumBanos(),
+                        this.isTieneJacuzzi());
     }
 
 }

@@ -23,6 +23,8 @@ public class Simple extends Habitacion{
 
     @Override
     public String toString() {
-        return String.format("capacidad=%d personas", this.getNumeroMaximoPersonas());
+        return super.toString() + ", " +
+                String.format("habitación simple, capacidad=%d personas",
+                this.getNumeroMaximoPersonas());
     }
 }

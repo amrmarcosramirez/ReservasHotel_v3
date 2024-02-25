@@ -64,6 +64,10 @@ public class Doble extends Habitacion{
 
     @Override
     public String toString() {
-        return String.format("capacidad=%d personas", this.getNumeroMaximoPersonas());
+        return super.toString() + ", " +
+                String.format("habitación doble, capacidad=%d personas," +
+                        "camas individuales=%d, camas dobles=%d",
+                        this.getNumeroMaximoPersonas(), this.getNumCamasIndividuales(),
+                        this.getNumCamasDobles());
     }
 }
