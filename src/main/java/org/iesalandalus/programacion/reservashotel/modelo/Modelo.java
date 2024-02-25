@@ -1,12 +1,8 @@
 package org.iesalandalus.programacion.reservashotel.modelo;
 
-import org.iesalandalus.programacion.reservashotel.modelo.dominio.Habitacion;
-import org.iesalandalus.programacion.reservashotel.modelo.dominio.Huesped;
-import org.iesalandalus.programacion.reservashotel.modelo.dominio.Reserva;
-import org.iesalandalus.programacion.reservashotel.modelo.dominio.TipoHabitacion;
-import org.iesalandalus.programacion.reservashotel.modelo.negocio.Habitaciones;
-import org.iesalandalus.programacion.reservashotel.modelo.negocio.Huespedes;
-import org.iesalandalus.programacion.reservashotel.modelo.negocio.Reservas;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.*;
+import org.iesalandalus.programacion.reservashotel.modelo.negocio.*;
+import org.iesalandalus.programacion.reservashotel.modelo.negocio.memoria.*;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDateTime;
@@ -15,9 +11,9 @@ import java.util.List;
 public class Modelo {
 
     // Se crean los atributos con su visibilidad adecuada
-    private Habitaciones habitaciones;
-    private Reservas reservas;
-    private Huespedes huespedes;
+    private IHabitaciones habitaciones;
+    private IReservas reservas;
+    private IHuespedes huespedes;
 
     //Se crea el constructor
     public Modelo() {}
