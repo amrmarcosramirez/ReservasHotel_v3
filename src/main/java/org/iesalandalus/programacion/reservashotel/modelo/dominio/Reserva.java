@@ -155,7 +155,7 @@ public class Reserva {
     public void setNumeroPersonas(int numeroPersonas) {
         if (numeroPersonas <= 0){
             throw new IllegalArgumentException("ERROR: El número de personas de una reserva no puede ser menor o igual a 0.");
-        } else if (numeroPersonas > habitacion.getTipoHabitacion().getNumeroMaximoPersonas()) {
+        } else if (numeroPersonas > habitacion.getNumeroMaximoPersonas()) {
             throw new IllegalArgumentException("ERROR: El número de personas de una reserva no puede superar al máximo de personas establacidas para el tipo de habitación reservada.");
         } else{
             this.numeroPersonas = numeroPersonas;
@@ -189,7 +189,7 @@ public class Reserva {
     public String toString() {
         return String.format("Huesped: %s %s Habitación:%s - %s Fecha Inicio Reserva: %s Fecha Fin Reserva: %s Checkin: %s " +
                         "Checkout: %s Precio: %.2f Personas: %d", this.huesped.getNombre(), this.huesped.getDni(),
-                this.habitacion.getIdentificador(),this.habitacion.getTipoHabitacion(),
+                this.habitacion.getIdentificador(),this.getHabitacion(),
                 this.fechaInicioReserva.format(DateTimeFormatter.ofPattern(FORMATO_FECHA_RESERVA)),
                 this.fechaFinReserva.format(DateTimeFormatter.ofPattern(FORMATO_FECHA_RESERVA)),
                 (!(this.checkIn==null))? getCheckIn().format(DateTimeFormatter.ofPattern(FORMATO_FECHA_HORA_RESERVA)):
