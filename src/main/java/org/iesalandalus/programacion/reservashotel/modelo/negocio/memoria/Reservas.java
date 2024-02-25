@@ -80,8 +80,7 @@ public class Reservas implements IReservas {
         Objects.requireNonNull(tipoHabitacion, "ERROR: No se pueden buscar reservas de un tipo de habitación nula.");
         List<Reserva> reservasHabitacion = new ArrayList<>();
         for (Iterator<Reserva> iterator = get().iterator(); iterator.hasNext();) {
-            if (iterator.next() != null &&
-                    iterator.next().getHabitacion().getClass().isInstance(tipoHabitacion)) {
+            if (iterator.next().getHabitacion().getClass().isInstance(tipoHabitacion)) {
                 reservasHabitacion.add(new Reserva(iterator.next()));
             }
         }
