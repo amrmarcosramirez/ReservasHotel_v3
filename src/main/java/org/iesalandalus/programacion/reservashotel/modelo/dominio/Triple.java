@@ -4,8 +4,8 @@ public class Triple extends Habitacion{
 
     // Atributos
     private static final int NUM_MAXIMO_PERSONAS=3;
-    static final int MIN_NUM_BANOS=1;
-    static final int MAX_NUM_BANOS=2;
+    static final int MIN_NUM_BANOS=2;
+    static final int MAX_NUM_BANOS=3;
     static final int MIN_NUM_CAMAS_INDIVIDUALES=2;
     static final int MAX_NUM_CAMAS_INDIVIDUALES=3;
     static final int MIN_NUM_CAMAS_DOBLES=0;
@@ -21,6 +21,7 @@ public class Triple extends Habitacion{
         setNumBanos(numBanos);
         setNumCamasIndividuales(numCamasIndividuales);
         setNumCamasDobles(numCamasDobles);
+        validaNumCamas();
     }
 
     public Triple(Triple habitacionTriple){
@@ -29,6 +30,7 @@ public class Triple extends Habitacion{
         setNumBanos(habitacionTriple.getNumBanos());
         setNumCamasIndividuales(habitacionTriple.getNumCamasIndividuales());
         setNumCamasDobles(habitacionTriple.getNumCamasDobles());
+        validaNumCamas();
     }
 
     public int getNumBanos() {
@@ -36,7 +38,15 @@ public class Triple extends Habitacion{
     }
 
     public void setNumBanos(int numBanos) {
-        this.numBanos = numBanos;
+        if (numBanos < MIN_NUM_BANOS ||
+                numBanos > MAX_NUM_BANOS) {
+            throw new IllegalArgumentException("ERROR: El número de baños no puede ser " +
+                    "inferior a " + MIN_NUM_BANOS + " ni mayor que " +
+                    MAX_NUM_BANOS + ".");
+        } else {
+            this.numBanos = numBanos;
+        }
+
     }
 
     public int getNumCamasIndividuales() {
@@ -56,6 +66,14 @@ public class Triple extends Habitacion{
     }
 
     private void validaNumCamas(){
+        if( getNumCamasIndividuales() > MIN_NUM_CAMAS_INDIVIDUALES &&
+                getNumCamasDobles() > MIN_NUM_CAMAS_DOBLES){
+            throw new IllegalArgumentException("ERROR: Dado que es una habitación para " +
+                    NUM_MAXIMO_PERSONAS + " personas, este tipo de habitaciones tendrá, o bien " +
+                    MIN_NUM_CAMAS_INDIVIDUALES + " camas individuales y " +
+                    MAX_NUM_CAMAS_INDIVIDUALES + " doble o bien " +
+                    MAX_NUM_CAMAS_INDIVIDUALES + " individuales.");
+        }
         if (getNumCamasIndividuales() < MIN_NUM_CAMAS_INDIVIDUALES ||
                 getNumCamasIndividuales() > MAX_NUM_CAMAS_INDIVIDUALES) {
             throw new IllegalArgumentException("ERROR: El número de camas individuales no puede ser " +

@@ -4,8 +4,8 @@ public class Suite extends Habitacion{
 
     // Atributos
     private static final int NUM_MAXIMO_PERSONAS=4;
-    static final int MIN_NUM_BANOS=1;
-    static final int MAX_NUM_BANOS=2;
+    static final int MIN_NUM_BANOS=2;
+    static final int MAX_NUM_BANOS=3;
     private int numBanos;
     private boolean tieneJacuzzi;
 
@@ -28,7 +28,14 @@ public class Suite extends Habitacion{
     }
 
     public void setNumBanos(int numBanos) {
-        this.numBanos = numBanos;
+        if (numBanos < MIN_NUM_BANOS ||
+                numBanos > MAX_NUM_BANOS) {
+            throw new IllegalArgumentException("ERROR: El número de baños no puede ser " +
+                    "inferior a " + MIN_NUM_BANOS + " ni mayor que " +
+                    MAX_NUM_BANOS + ".");
+        } else {
+            this.numBanos = numBanos;
+        }
     }
 
     public boolean isTieneJacuzzi() {

@@ -17,6 +17,7 @@ public class Doble extends Habitacion{
         super(planta, puerta, precio);
         setNumCamasIndividuales(numCamasIndividuales);
         setNumCamasDobles(numCamasDobles);
+        validaNumCamas();
     }
 
     public Doble(Doble habitacionDoble){
@@ -24,6 +25,7 @@ public class Doble extends Habitacion{
                 habitacionDoble.getPrecio());
         setNumCamasIndividuales(habitacionDoble.getNumCamasIndividuales());
         setNumCamasDobles(habitacionDoble.getNumCamasDobles());
+        validaNumCamas();
     }
 
     public int getNumCamasIndividuales() {
@@ -43,6 +45,13 @@ public class Doble extends Habitacion{
     }
 
     private void validaNumCamas(){
+        if( getNumCamasIndividuales() > MIN_NUM_CAMAS_INDIVIDUALES &&
+            getNumCamasDobles() > MIN_NUM_CAMAS_DOBLES){
+            throw new IllegalArgumentException("ERROR: Dado que es una habitación para " +
+                    NUM_MAXIMO_PERSONAS + " personas, este tipo de habitaciones tendrá, o bien " +
+                    MAX_NUM_CAMAS_INDIVIDUALES + " camas individuales o bien " +
+                    MAX_NUM_CAMAS_INDIVIDUALES + " sola cama doble.");
+        }
         if (getNumCamasIndividuales() < MIN_NUM_CAMAS_INDIVIDUALES ||
             getNumCamasIndividuales() > MAX_NUM_CAMAS_INDIVIDUALES) {
             throw new IllegalArgumentException("ERROR: El número de camas individuales no puede ser " +
