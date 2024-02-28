@@ -485,13 +485,6 @@ public class Vista {
         return null;
     }
 
-    /*
-    public int getNumElementosNoNulos(List<Reserva> reservas) {
-        //return (int) Arrays.stream(reservas).filter(Objects::nonNull).count();
-        return reservas.size();
-    }
-     */
-
     public void realizarCheckin() {
         String mensaje = "Realizar checkin";
         System.out.printf("%n%s%n", mensaje);
