@@ -53,7 +53,7 @@ public enum Opcion {
         @Override
         public void ejecutar() {vista.mostrarReservasHuesped();}
     },
-    LISTAR_RESERVAS_TIPO_HABITACION("Listar reserva tipo habitación") {
+    LISTAR_RESERVAS_TIPO_HABITACION("Listar reservas tipo habitación") {
         @Override
         public void ejecutar() {vista.mostrarReservasTipoHabitacion();}
     },
