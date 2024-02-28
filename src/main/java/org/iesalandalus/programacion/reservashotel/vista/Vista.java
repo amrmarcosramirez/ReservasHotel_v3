@@ -267,8 +267,17 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        Huesped huesped = leerClientePorDni();
-        listarReservas(huesped);
+        List<Reserva> listaReservas = controlador.getReservas();
+        if (!listaReservas.isEmpty()) {
+            try {
+                Huesped huesped = leerClientePorDni();
+                listarReservas(huesped);
+            } catch (IllegalArgumentException | NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        } else {
+            System.out.println("No hay reservas dadas de alta en el sistema.");
+        }
     }
 
     public void listarReservas(Huesped huesped){
@@ -293,8 +302,18 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        TipoHabitacion tipoHabitacion = leerTipoHabitacion();
-        listarReservas(tipoHabitacion);
+        List<Reserva> listaReservas = controlador.getReservas();
+        if (!listaReservas.isEmpty()) {
+            try {
+                TipoHabitacion tipoHabitacion = leerTipoHabitacion();
+                listarReservas(tipoHabitacion);
+            } catch (IllegalArgumentException | NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        } else {
+            System.out.println("No hay reservas dadas de alta en el sistema.");
+        }
+
     }
 
     public void comprobarDisponibilidad() {
@@ -303,16 +322,24 @@ public class Vista {
         String cadena1 = "%0" + mensaje1.length() + "d";
         System.out.println(String.format(cadena1, 0).replace("0", "-"));
 
-        TipoHabitacion tipoHabitacion = leerTipoHabitacion();
-        LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio (%s): ");
-        LocalDate fechaFin = leerFecha("Introduce la fecha de fin (%s): ");
-        Habitacion habitacionDisponible = consultarDisponibilidad(tipoHabitacion, fechaInicio,
-                fechaFin);
-        if (habitacionDisponible == null) {
-            System.out.println("El tipo de habitación solicitado NO está disponible.");
-        } else {
-            System.out.println("La habitación: " + habitacionDisponible + ", está disponible.");
+        try {
+            if (controlador.getHabitaciones().isEmpty()) {
+                System.out.println("No hay habitaciones dadas de alta en el sistema para poder realizar la reserva.");
+            } else {
+                TipoHabitacion tipoHabitacion = leerTipoHabitacion();
+                LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio (%s): ");
+                LocalDate fechaFin = leerFecha("Introduce la fecha de fin (%s): ");
+                Habitacion habitacionDisponible = consultarDisponibilidad(tipoHabitacion, fechaInicio,
+                        fechaFin);
+                if (habitacionDisponible == null) {
+                    System.out.println("El tipo de habitación solicitado NO está disponible.");
+                } else {
+                    System.out.println("La habitación: " + habitacionDisponible + ", está disponible.");
 
+                }
+            }
+        } catch (IllegalArgumentException | NullPointerException e) {
+            System.out.println(e.getMessage());
         }
     }
 
