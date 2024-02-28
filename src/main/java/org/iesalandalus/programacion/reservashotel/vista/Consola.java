@@ -18,6 +18,10 @@ public class Consola {
 
     //Métodos
     public static void mostrarMenu(){
+        String mensaje = "Menú de opciones:";
+        System.out.printf("%n%s%n", mensaje);
+        String cadena = "%0" + mensaje.length() + "d";
+        System.out.println(String.format(cadena, 0).replace("0", "-"));
         for (Opcion opcion: Opcion.values()) {
             System.out.println(opcion);
         }
@@ -26,7 +30,11 @@ public class Consola {
     public static Opcion elegirOpcion() {
         int ordinalOpcion;
         do {
-            System.out.println("Elige una opción: ");
+            String mensaje = "Elige una opción:";
+            System.out.printf("%n%s%n", mensaje);
+            String cadena = "%0" + mensaje.length() + "d";
+            System.out.println(String.format(cadena, 0).replace("0", "-"));
+
             ordinalOpcion = Entrada.entero();
         } while (!(ordinalOpcion >= 0 && ordinalOpcion <= (Opcion.values().length - 1)));
         return Opcion.values()[ordinalOpcion];

@@ -46,7 +46,7 @@ public class Vista {
     public void insertarHuesped() {
         String mensaje = "Insertar huésped";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -61,7 +61,7 @@ public class Vista {
     public void buscarHuesped() {
         String mensaje = "Buscar huésped";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -85,7 +85,7 @@ public class Vista {
     public void borrarHuesped() {
         String mensaje = "Borrar huésped";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -110,7 +110,7 @@ public class Vista {
     public void mostrarHuespedes(){
         String mensaje = "Mostrar huéspedes";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         List<Huesped> listaHuespedes = controlador.getHuespedes();
@@ -121,14 +121,14 @@ public class Vista {
                 System.out.println(huesped);
             }*/
         } else {
-            System.out.println("No hay huéspedes que mostrar.");
+            System.out.println("No hay huéspedes que mostrar.\n");
         }
     }
 
     public void insertarHabitacion() {
         String mensaje = "Insertar habitación";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -143,7 +143,7 @@ public class Vista {
     public void buscarHabitacion(){
         String mensaje = "Buscar habitación";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -167,7 +167,7 @@ public class Vista {
     public void borrarHabitacion() {
         String mensaje = "Borrar habitacción";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -192,7 +192,7 @@ public class Vista {
     public void mostrarHabitaciones(){
         String mensaje = "Mostrar habitaciones";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         List<Habitacion> listaHabitacion = controlador.getHabitaciones();
@@ -216,7 +216,7 @@ public class Vista {
 
         String mensaje = "Insertar reserva";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -264,7 +264,7 @@ public class Vista {
     public void mostrarReservasHuesped(){
         String mensaje = "Listar reservas huésped";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         Huesped huesped = leerClientePorDni();
@@ -290,7 +290,7 @@ public class Vista {
     public void mostrarReservasTipoHabitacion(){
         String mensaje = "Listar reservas tipo habitación";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         TipoHabitacion tipoHabitacion = leerTipoHabitacion();
@@ -300,7 +300,7 @@ public class Vista {
     public void comprobarDisponibilidad() {
         String mensaje1 = "Consultar disponibilidad";
         System.out.printf("%n%s%n", mensaje1);
-        String cadena1 = "%0" + mensaje1.length() + "d%n";
+        String cadena1 = "%0" + mensaje1.length() + "d";
         System.out.println(String.format(cadena1, 0).replace("0", "-"));
 
         TipoHabitacion tipoHabitacion = leerTipoHabitacion();
@@ -347,7 +347,7 @@ public class Vista {
     public void anularReserva() {
         String mensaje = "Anular reservas";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         char confReserva = 'S';
@@ -395,7 +395,7 @@ public class Vista {
     public void mostrarReservas(){
         String mensaje = "Mostrar reservas";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         List<Reserva> listaReservas = controlador.getReservas();
@@ -495,7 +495,7 @@ public class Vista {
     public void realizarCheckin() {
         String mensaje = "Realizar checkin";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
@@ -532,7 +532,7 @@ public class Vista {
     public void realizarCheckOut() {
         String mensaje = "Realizar checkout";
         System.out.printf("%n%s%n", mensaje);
-        String cadena = "%0" + mensaje.length() + "d%n";
+        String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
         try {
