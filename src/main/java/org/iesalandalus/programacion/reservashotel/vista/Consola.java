@@ -88,7 +88,6 @@ public class Consola {
     public static LocalDate leerFecha(String mensaje) {
         LocalDate fecha = null;
         boolean fechaValida = false;
-
         do {
             try {
                 System.out.printf(mensaje, Huesped.FORMATO_FECHA);

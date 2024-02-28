@@ -66,6 +66,7 @@ public class Reserva {
     }
 
     public Habitacion getHabitacion() {
+        /*
         if(habitacion instanceof Simple){
             return new Simple((Simple) habitacion);
         }else if(habitacion instanceof Doble){
@@ -75,6 +76,8 @@ public class Reserva {
         }else {
             return new Suite((Suite) habitacion);
         }
+        */
+        return habitacion;
     }
 
     public void setHabitacion(Habitacion habitacion) {

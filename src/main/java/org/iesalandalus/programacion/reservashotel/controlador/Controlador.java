@@ -32,8 +32,9 @@ public class Controlador {
     }
 
     public void terminar() {
+        System.out.println("Hasta luego.!!!");
         modelo.terminar();
-        vista.terminar();
+        //vista.terminar();
     }
 
     public void insertar(Huesped huesped) throws OperationNotSupportedException {

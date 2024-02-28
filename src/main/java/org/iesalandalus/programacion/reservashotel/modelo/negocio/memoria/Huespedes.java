@@ -5,7 +5,6 @@ import org.iesalandalus.programacion.reservashotel.modelo.negocio.*;
 
 import javax.naming.OperationNotSupportedException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,9 +21,8 @@ public class Huespedes implements IHuespedes {
     //Métodos de acceso y modificación
     public List<Huesped> get() {
         List<Huesped> copiaHuespedes = new ArrayList<>();
-        for (Iterator<Huesped> iterator = coleccionHuespedes.iterator()
-             ; iterator.hasNext();) {
-            copiaHuespedes.add(new Huesped(iterator.next()));
+        for (Huesped coleccionHuespede : coleccionHuespedes) {
+            copiaHuespedes.add(new Huesped(coleccionHuespede));
         }
         return copiaHuespedes;
     }

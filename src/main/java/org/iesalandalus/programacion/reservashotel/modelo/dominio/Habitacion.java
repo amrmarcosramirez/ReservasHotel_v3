@@ -22,6 +22,7 @@ public abstract class Habitacion {
         setPuerta(puerta);
         setPrecio(precio);
         setIdentificador(String.valueOf(planta)+puerta);
+        setIdentificador();
     }
 
     public Habitacion(Habitacion habitacion){
@@ -31,6 +32,7 @@ public abstract class Habitacion {
         setPuerta(habitacion.getPuerta());
         setPrecio(habitacion.getPrecio());
         setIdentificador(String.valueOf(habitacion.getPlanta())+habitacion.getPuerta());
+        setIdentificador();
     }
 
     //Métodos de acceso y modificación

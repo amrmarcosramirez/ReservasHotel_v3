@@ -1,10 +1,10 @@
 package org.iesalandalus.programacion.reservashotel.modelo.dominio;
 
 public enum Regimen {
-    SOLO_ALOJAMIENTO("SOLO_ALOJAMIENTO", 0),
-    ALOJAMIENTO_DESAYUNO("ALOJAMIENTO_DESAYUNO", 15),
-    MEDIA_PENSION("MEDIA_PENSION", 30),
-    PENSION_COMPLETA("PENSION_COMPLETA", 50);
+    SOLO_ALOJAMIENTO("Sólo alojamiento", 0),
+    ALOJAMIENTO_DESAYUNO("Alojamiento y desayuno", 15),
+    MEDIA_PENSION("Media Pensión", 30),
+    PENSION_COMPLETA("Pensión Completa", 50);
 
     // Se crean los atributos con su visibilidad adecuada
     private String cadenaAMostrar;
