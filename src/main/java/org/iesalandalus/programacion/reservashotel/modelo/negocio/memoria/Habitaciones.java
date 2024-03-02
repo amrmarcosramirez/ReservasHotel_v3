@@ -21,6 +21,7 @@ public class Habitaciones implements IHabitaciones {
     }
 
     //Métodos de acceso y modificación
+    @Override
     public List<Habitacion> get() {
         List<Habitacion> copiaHabitaciones = new ArrayList<>();
         for (Iterator<Habitacion> iterator = coleccionHabitaciones.iterator();
@@ -38,6 +39,7 @@ public class Habitaciones implements IHabitaciones {
         return copiaHabitaciones;
     }
 
+    @Override
     public List<Habitacion> get(TipoHabitacion tipoHabitacion) {
         List<Habitacion> copiaHabitaciones = new ArrayList<>();
         for (Iterator<Habitacion> iterator = get().iterator();iterator.hasNext();){
@@ -56,10 +58,12 @@ public class Habitaciones implements IHabitaciones {
         return copiaHabitaciones;
     }
 
+    @Override
     public int getTamano() {
         return coleccionHabitaciones.size();
     }
 
+    @Override
     public void insertar(Habitacion habitacion) throws OperationNotSupportedException {
         Objects.requireNonNull(habitacion, "ERROR: No se puede insertar una habitación nula.");
         if (!coleccionHabitaciones.contains(habitacion)) {
@@ -77,6 +81,7 @@ public class Habitaciones implements IHabitaciones {
         }
     }
 
+    @Override
     public Habitacion buscar(Habitacion habitacion) {
         int indice = coleccionHabitaciones.indexOf(habitacion);
         if (indice == -1) {
@@ -94,6 +99,7 @@ public class Habitaciones implements IHabitaciones {
         }
     }
 
+    @Override
     public void borrar(Habitacion habitacion) throws OperationNotSupportedException {
         Objects.requireNonNull(habitacion, "ERROR: No se puede borrar una habitación nula.");
         int indice = coleccionHabitaciones.indexOf(habitacion);

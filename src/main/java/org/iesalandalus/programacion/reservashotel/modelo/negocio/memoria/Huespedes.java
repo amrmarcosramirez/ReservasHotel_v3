@@ -19,6 +19,7 @@ public class Huespedes implements IHuespedes {
     }
 
     //Métodos de acceso y modificación
+    @Override
     public List<Huesped> get() {
         List<Huesped> copiaHuespedes = new ArrayList<>();
         for (Huesped coleccionHuespede : coleccionHuespedes) {
@@ -27,10 +28,12 @@ public class Huespedes implements IHuespedes {
         return copiaHuespedes;
     }
 
+    @Override
     public int getTamano() {
         return coleccionHuespedes.size();
     }
 
+    @Override
     public void insertar(Huesped huesped) throws OperationNotSupportedException {
         Objects.requireNonNull(huesped, "ERROR: No se puede insertar un huésped nulo.");
         if (!coleccionHuespedes.contains(huesped)) {
@@ -40,6 +43,7 @@ public class Huespedes implements IHuespedes {
         }
     }
 
+    @Override
     public Huesped buscar(Huesped huesped) {
         int indice = coleccionHuespedes.indexOf(huesped);
         if (indice == -1) {
@@ -49,6 +53,7 @@ public class Huespedes implements IHuespedes {
         }
     }
 
+    @Override
     public void borrar(Huesped huesped) throws OperationNotSupportedException {
         Objects.requireNonNull(huesped, "ERROR: No se puede borrar un huésped nulo.");
         int indice = coleccionHuespedes.indexOf(huesped);
