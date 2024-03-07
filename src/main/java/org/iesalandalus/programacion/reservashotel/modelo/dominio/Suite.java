@@ -31,7 +31,7 @@ public class Suite extends Habitacion{
         if (numBanos < MIN_NUM_BANOS ||
                 numBanos > MAX_NUM_BANOS) {
             throw new IllegalArgumentException("ERROR: El número de baños no puede ser " +
-                    "inferior a " + MIN_NUM_BANOS + " ni mayor que " +
+                    "inferior a " + MIN_NUM_BANOS + " ni superior a " +
                     MAX_NUM_BANOS + ".");
         } else {
             this.numBanos = numBanos;
@@ -55,9 +55,9 @@ public class Suite extends Habitacion{
     public String toString() {
         return super.toString() + ", " +
                 String.format("habitación suite, capacidad=%d personas, " +
-                                "baños=%d, tiene jacuzzi=%s",
+                                "baños=%d, %s",
                         this.getNumeroMaximoPersonas(), this.getNumBanos(),
-                        this.isTieneJacuzzi());
+                        (this.isTieneJacuzzi())? "con Jacuzzi": "sin Jacuzzi");
     }
 
 }

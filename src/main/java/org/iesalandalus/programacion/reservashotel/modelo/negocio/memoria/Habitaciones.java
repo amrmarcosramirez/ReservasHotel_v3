@@ -24,34 +24,36 @@ public class Habitaciones implements IHabitaciones {
     @Override
     public List<Habitacion> get() {
         List<Habitacion> copiaHabitaciones = new ArrayList<>();
-        for (Iterator<Habitacion> iterator = coleccionHabitaciones.iterator();
-             iterator.hasNext();) {
-            if(iterator.next() instanceof Simple){
-                copiaHabitaciones.add(new Simple((Simple) iterator.next()));
-            }else if(iterator.next() instanceof Doble){
-                copiaHabitaciones.add(new Doble((Doble) iterator.next()));
-            }else if(iterator.next() instanceof Triple){
-                copiaHabitaciones.add(new Triple((Triple) iterator.next()));
+        for (Iterator<Habitacion> it = coleccionHabitaciones.iterator(); it.hasNext(); ) {
+            Habitacion habitacion = it.next();
+            if(habitacion instanceof Simple){
+                copiaHabitaciones.add(new Simple((Simple) habitacion));
+            }else if(habitacion instanceof Doble){
+                copiaHabitaciones.add(new Doble((Doble) habitacion));
+            }else if(habitacion instanceof Triple){
+                copiaHabitaciones.add(new Triple((Triple) habitacion));
             }else {
-                copiaHabitaciones.add(new Suite((Suite) iterator.next()));
+                copiaHabitaciones.add(new Suite((Suite) habitacion));
             }
         }
+
         return copiaHabitaciones;
     }
 
     @Override
     public List<Habitacion> get(TipoHabitacion tipoHabitacion) {
         List<Habitacion> copiaHabitaciones = new ArrayList<>();
-        for (Iterator<Habitacion> iterator = get().iterator();iterator.hasNext();){
-            if(iterator.next().getClass().isInstance(tipoHabitacion)) {
-                if(iterator.next() instanceof Simple){
-                    copiaHabitaciones.add(new Simple((Simple) iterator.next()));
-                }else if(iterator.next() instanceof Doble){
-                    copiaHabitaciones.add(new Doble((Doble) iterator.next()));
-                }else if(iterator.next() instanceof Triple){
-                    copiaHabitaciones.add(new Triple((Triple) iterator.next()));
+        for (Iterator<Habitacion> it = get().iterator();it.hasNext();){
+            Habitacion habitacion = it.next();
+            if(habitacion.getClass().isInstance(tipoHabitacion)) {
+                if(habitacion instanceof Simple){
+                    copiaHabitaciones.add(new Simple((Simple) habitacion));
+                }else if(habitacion instanceof Doble){
+                    copiaHabitaciones.add(new Doble((Doble) habitacion));
+                }else if(habitacion instanceof Triple){
+                    copiaHabitaciones.add(new Triple((Triple) habitacion));
                 }else {
-                    copiaHabitaciones.add(new Suite((Suite) iterator.next()));
+                    copiaHabitaciones.add(new Suite((Suite) habitacion));
                 }
             }
         }

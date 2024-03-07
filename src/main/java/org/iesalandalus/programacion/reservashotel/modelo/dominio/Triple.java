@@ -41,8 +41,8 @@ public class Triple extends Habitacion{
         if (numBanos < MIN_NUM_BANOS ||
                 numBanos > MAX_NUM_BANOS) {
             throw new IllegalArgumentException("ERROR: El número de baños no puede ser " +
-                    "inferior a " + MIN_NUM_BANOS + " ni mayor que " +
-                    MAX_NUM_BANOS + ".");
+                    "inferior a " + MIN_NUM_BANOS + " ni superior a " +
+                    MAX_NUM_BANOS);
         } else {
             this.numBanos = numBanos;
         }
@@ -76,15 +76,17 @@ public class Triple extends Habitacion{
         }
         if (getNumCamasIndividuales() < MIN_NUM_CAMAS_INDIVIDUALES ||
                 getNumCamasIndividuales() > MAX_NUM_CAMAS_INDIVIDUALES) {
-            throw new IllegalArgumentException("ERROR: El número de camas individuales no puede ser " +
+            throw new IllegalArgumentException("ERROR: El número de camas individuales " +
+                    "de una habitación triple no puede ser " +
                     "inferior a " + MIN_NUM_CAMAS_INDIVIDUALES + " ni mayor que " +
-                    MAX_NUM_CAMAS_INDIVIDUALES + ".");
+                    MAX_NUM_CAMAS_INDIVIDUALES);
         }
         if (getNumCamasDobles() < MIN_NUM_CAMAS_DOBLES ||
                 getNumCamasDobles() > MAX_NUM_CAMAS_DOBLES) {
-            throw new IllegalArgumentException("ERROR: El número de camas dobles no puede ser " +
+            throw new IllegalArgumentException("ERROR: El número de camas dobles " +
+                    "de una habitación triple no puede ser " +
                     "inferior a " + MIN_NUM_CAMAS_DOBLES + " ni mayor que " +
-                    MAX_NUM_CAMAS_DOBLES + ".");
+                    MAX_NUM_CAMAS_DOBLES);
         }
     }
 

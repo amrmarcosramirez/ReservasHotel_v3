@@ -47,22 +47,24 @@ public class Doble extends Habitacion{
     private void validaNumCamas(){
         if( getNumCamasIndividuales() > MIN_NUM_CAMAS_INDIVIDUALES &&
             getNumCamasDobles() > MIN_NUM_CAMAS_DOBLES){
-            throw new IllegalArgumentException("ERROR: Dado que es una habitación para " +
-                    NUM_MAXIMO_PERSONAS + " personas, este tipo de habitaciones tendrá, o bien " +
-                    MAX_NUM_CAMAS_INDIVIDUALES + " camas individuales o bien " +
-                    MAX_NUM_CAMAS_INDIVIDUALES + " sola cama doble.");
+            throw new IllegalArgumentException("ERROR: El número de camas dobles " +
+                    "de una habitación doble no puede ser inferior a " +
+                    MIN_NUM_CAMAS_DOBLES + " ni mayor que " +
+                    MAX_NUM_CAMAS_DOBLES);
         }
         if (getNumCamasIndividuales() < MIN_NUM_CAMAS_INDIVIDUALES ||
             getNumCamasIndividuales() > MAX_NUM_CAMAS_INDIVIDUALES) {
-            throw new IllegalArgumentException("ERROR: El número de camas individuales no puede ser " +
+            throw new IllegalArgumentException("ERROR: El número de camas individuales " +
+                    "de una habitación doble no puede ser " +
                     "inferior a " + MIN_NUM_CAMAS_INDIVIDUALES + " ni mayor que " +
-                    MAX_NUM_CAMAS_INDIVIDUALES + ".");
+                    MAX_NUM_CAMAS_INDIVIDUALES);
         }
         if (getNumCamasDobles() < MIN_NUM_CAMAS_DOBLES ||
                 getNumCamasDobles() > MAX_NUM_CAMAS_DOBLES) {
-            throw new IllegalArgumentException("ERROR: El número de camas dobles no puede ser " +
+            throw new IllegalArgumentException("ERROR: El número de camas dobles " +
+                    "de una habitación doble no puede ser " +
                     "inferior a " + MIN_NUM_CAMAS_DOBLES + " ni mayor que " +
-                    MAX_NUM_CAMAS_DOBLES + ".");
+                    MAX_NUM_CAMAS_DOBLES);
         }
     }
 
@@ -75,7 +77,7 @@ public class Doble extends Habitacion{
     public String toString() {
         return super.toString() + ", " +
                 String.format("habitación doble, capacidad=%d personas," +
-                        "camas individuales=%d, camas dobles=%d",
+                        " camas individuales=%d, camas dobles=%d",
                         this.getNumeroMaximoPersonas(), this.getNumCamasIndividuales(),
                         this.getNumCamasDobles());
     }

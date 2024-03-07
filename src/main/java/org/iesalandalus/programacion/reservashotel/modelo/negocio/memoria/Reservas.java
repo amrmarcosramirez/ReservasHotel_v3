@@ -70,10 +70,10 @@ public class Reservas implements IReservas {
     public List<Reserva> getReservas(Huesped huesped) {
         Objects.requireNonNull(huesped, "ERROR: No se pueden buscar reservas de un huésped nulo.");
         List<Reserva> reservasHuesped = new ArrayList<>();
-        for (Iterator<Reserva> iterator = get().iterator(); iterator.hasNext();) {
-            if (iterator.next() != null &&
-                    iterator.next().getHuesped().equals(huesped)) {
-                reservasHuesped.add(new Reserva(iterator.next()));
+        for (Iterator<Reserva> it = get().iterator(); it.hasNext();) {
+            Reserva reserva = it.next();
+            if (reserva != null && reserva.getHuesped().equals(huesped)) {
+                reservasHuesped.add(new Reserva(reserva));
             }
         }
         return reservasHuesped;
@@ -83,9 +83,10 @@ public class Reservas implements IReservas {
     public List<Reserva> getReservas(TipoHabitacion tipoHabitacion) {
         Objects.requireNonNull(tipoHabitacion, "ERROR: No se pueden buscar reservas de un tipo de habitación nula.");
         List<Reserva> reservasHabitacion = new ArrayList<>();
-        for (Iterator<Reserva> iterator = get().iterator(); iterator.hasNext();) {
-            if (iterator.next().getHabitacion().getClass().isInstance(tipoHabitacion)) {
-                reservasHabitacion.add(new Reserva(iterator.next()));
+        for (Iterator<Reserva> it = get().iterator(); it.hasNext();) {
+            Reserva reserva = it.next();
+            if (reserva.getHabitacion().getClass().isInstance(tipoHabitacion)) {
+                reservasHabitacion.add(new Reserva(reserva));
             }
         }
         return reservasHabitacion;
@@ -95,9 +96,10 @@ public class Reservas implements IReservas {
     public List<Reserva> getReservasFuturas(Habitacion habitacion) {
         Objects.requireNonNull(habitacion, "ERROR: No se pueden buscar reservas de una habitación nula.");
         List<Reserva> reservasHabitacion = new ArrayList<>();
-        for (Iterator<Reserva> iterator = get().iterator(); iterator.hasNext();) {
-            if (iterator.next() != null && iterator.next().getHabitacion().equals(habitacion)) {
-                reservasHabitacion.add(new Reserva(iterator.next()));
+        for (Iterator<Reserva> it = get().iterator(); it.hasNext();) {
+            Reserva reserva = it.next();
+            if (reserva != null && reserva.getHabitacion().equals(habitacion)) {
+                reservasHabitacion.add(new Reserva(reserva));
             }
         }
         return reservasHabitacion;

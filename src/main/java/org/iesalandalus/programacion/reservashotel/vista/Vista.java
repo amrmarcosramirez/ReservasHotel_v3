@@ -113,15 +113,20 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        List<Huesped> listaHuespedes = controlador.getHuespedes();
-        if (!listaHuespedes.isEmpty()) {
-            listaHuespedes.sort(Comparator.comparing(Huesped::getNombre));
-            listaHuespedes.forEach(huesped1 -> System.out.println(huesped1.toString()));
-            /*for (Huesped huesped : listaHuespedes) {
-                System.out.println(huesped);
-            }*/
-        } else {
-            System.out.println("No hay huéspedes que mostrar.\n");
+        try {
+            List<Huesped> listaHuespedes = controlador.getHuespedes();
+            if (!listaHuespedes.isEmpty()) {
+                listaHuespedes.sort(Comparator.comparing(Huesped::getNombre));
+                listaHuespedes.forEach(huesped1 -> System.out.println(huesped1.toString()));
+                /*for (Huesped huesped : listaHuespedes) {
+                    System.out.println(huesped);
+                }*/
+            } else {
+                System.out.println("No hay huéspedes que mostrar.\n");
+            }
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -195,15 +200,20 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        List<Habitacion> listaHabitacion = controlador.getHabitaciones();
-        if (!listaHabitacion.isEmpty()) {
-            listaHabitacion.sort(Comparator.comparing(Habitacion::getIdentificador));
-            listaHabitacion.forEach(habitacion1 -> System.out.println(habitacion1.toString()));
-            /*for (Habitacion habitacion : listaHabitacion) {
-                System.out.println(habitacion);
-            }*/
-        } else {
-            System.out.println("No hay habitaciones que mostrar.");
+        try {
+            List<Habitacion> listaHabitacion = controlador.getHabitaciones();
+            if (!listaHabitacion.isEmpty()) {
+                listaHabitacion.sort(Comparator.comparing(Habitacion::getIdentificador));
+                listaHabitacion.forEach(habitacion1 -> System.out.println(habitacion1.toString()));
+                /*for (Habitacion habitacion : listaHabitacion) {
+                    System.out.println(habitacion);
+                }*/
+            } else {
+                System.out.println("No hay habitaciones que mostrar.");
+            }
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -267,32 +277,43 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        List<Reserva> listaReservas = controlador.getReservas();
-        if (!listaReservas.isEmpty()) {
-            try {
-                Huesped huesped = leerClientePorDni();
-                listarReservas(huesped);
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(e.getMessage());
+        try {
+            List<Reserva> listaReservas = controlador.getReservas();
+            if (!listaReservas.isEmpty()) {
+                try {
+                    Huesped huesped = leerClientePorDni();
+                    listarReservas(huesped);
+                } catch (IllegalArgumentException | NullPointerException e) {
+                    System.out.println(e.getMessage());
+                }
+            } else {
+                System.out.println("No hay reservas dadas de alta en el sistema.");
             }
-        } else {
-            System.out.println("No hay reservas dadas de alta en el sistema.");
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
     public void listarReservas(Huesped huesped){
-        List<Reserva> listaReservas = controlador.getReservas(huesped);
-        if (!listaReservas.isEmpty()){
-            listaReservas.sort(Comparator.comparing(
-                    Reserva::getFechaInicioReserva).reversed().thenComparing(
-                    (Reserva reserva1) -> reserva1.getHabitacion().getIdentificador()));
-            int i = 0;
-            for (Reserva reserva2 : listaReservas) {
-                System.out.println(i + ".- " + reserva2);
-                i++;
+
+        try {
+            List<Reserva> listaReservas = controlador.getReservas(huesped);
+            if (!listaReservas.isEmpty()){
+                listaReservas.sort(Comparator.comparing(
+                        Reserva::getFechaInicioReserva).reversed().thenComparing(
+                        (Reserva reserva1) -> reserva1.getHabitacion().getIdentificador()));
+                int i = 0;
+                for (Reserva reserva2 : listaReservas) {
+                    System.out.println(i + ".- " + reserva2);
+                    i++;
+                }
+            } else {
+                System.out.println("No hay reservas que listar.");
             }
-        } else {
-            System.out.println("No hay reservas que listar.");
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -344,30 +365,42 @@ public class Vista {
     }
 
     public void listarReservas(TipoHabitacion tipoHabitacion){
-        List<Reserva> listaReservas  = controlador.getReservas(tipoHabitacion);
-        if (!listaReservas.isEmpty()){
-            listaReservas.sort(Comparator.comparing(
-                    Reserva::getFechaInicioReserva).reversed().thenComparing(
-                    (Reserva reserva1) -> reserva1.getHuesped().getNombre()));
-            int i = 0;
-            for (Reserva reserva2: listaReservas) {
-                System.out.println(i + ".- " + reserva2);
-                i++;
+
+        try {
+            List<Reserva> listaReservas  = controlador.getReservas(tipoHabitacion);
+            if (!listaReservas.isEmpty()){
+                listaReservas.sort(Comparator.comparing(
+                        Reserva::getFechaInicioReserva).reversed().thenComparing(
+                        (Reserva reserva1) -> reserva1.getHuesped().getNombre()));
+                int i = 0;
+                for (Reserva reserva2: listaReservas) {
+                    System.out.println(i + ".- " + reserva2);
+                    i++;
+                }
+            } else {
+                System.out.println("No hay reservas que listar.");
             }
-        } else {
-            System.out.println("No hay reservas que listar.");
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 
     public List<Reserva> getReservasAnulables(List<Reserva> reservasAAnular){
         List<Reserva> reservasAnulables = new ArrayList<>();
-
-        for (Iterator<Reserva> reserva = reservasAAnular.iterator();
-             reserva.hasNext();) {
-            if(reserva.next().getFechaInicioReserva().isAfter(LocalDate.now())){
-                reservasAnulables.add(new Reserva(reserva.next()));
+        try {
+            for (Iterator<Reserva> it = reservasAAnular.iterator();
+                 it.hasNext();) {
+                Reserva reserva = it.next();
+                if(reserva.getFechaInicioReserva().isAfter(LocalDate.now())){
+                    reservasAnulables.add(new Reserva(reserva));
+                }
             }
+        } catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
         }
+
         return reservasAnulables;
     }
 
@@ -425,19 +458,23 @@ public class Vista {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        List<Reserva> listaReservas = controlador.getReservas();
-        if (!listaReservas.isEmpty()) {
-            listaReservas.sort(Comparator.comparing(
-                    Reserva::getFechaInicioReserva).reversed().thenComparing(
-                    (Reserva reserva1) -> reserva1.getHabitacion().getIdentificador()));
-            listaReservas.forEach(reserva2 -> System.out.println(reserva2.toString()));
+        try {
+            List<Reserva> listaReservas = controlador.getReservas();
+            if (!listaReservas.isEmpty()) {
+                listaReservas.sort(Comparator.comparing(
+                        Reserva::getFechaInicioReserva).reversed().thenComparing(
+                        (Reserva reserva1) -> reserva1.getHabitacion().getIdentificador()));
+                listaReservas.forEach(reserva2 -> System.out.println(reserva2.toString()));
 
-            /*for (Reserva reserva : listaReserva) {
-                if (!(reserva == null))
-                    System.out.println(reserva);
-            }*/
-        } else {
-            System.out.println("No hay reservas que mostrar.");
+                /*for (Reserva reserva : listaReserva) {
+                    if (!(reserva == null))
+                        System.out.println(reserva);
+                }*/
+            } else {
+                System.out.println("No hay reservas que mostrar.");
+            }
+        } catch (IllegalArgumentException|NullPointerException e) {
+            System.out.println(e.getMessage());
         }
     }
 

@@ -14,10 +14,15 @@ public class MainApp {
         String cadena = "%0" + mensaje.length() + "d";
         System.out.println(String.format(cadena, 0).replace("0", "-"));
 
-        Modelo modelo = new Modelo();
-        Vista vista = new Vista();
-        Controlador controlador = new Controlador(modelo, vista);
-        controlador.comenzar();
+        try {
+            Modelo modelo = new Modelo();
+            Vista vista = new Vista();
+            Controlador controlador = new Controlador(modelo, vista);
+            controlador.comenzar();
+
+        } catch (IllegalArgumentException|NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
